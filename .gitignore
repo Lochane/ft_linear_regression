@@ -1,0 +1,5 @@
+*.pyc
+thetas.json
+linear_regression_graph.png
+__pycache__
+*/__pycache__
