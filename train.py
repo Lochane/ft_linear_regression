@@ -36,6 +36,7 @@ def main():
 	plot_layers = [
 		LayerConfig(type="line", label="Linear Regression", values=(raw_mileage, predicted_price), color="red"),
 		LayerConfig(type="scatter", label="Original dataset", values=(raw_mileage, price))]
+	
 	plot(PlotConfig(x_label="KM", y_label="Price", tittle="Linear Regression on data set", layers=plot_layers, output_path="linear_regression_graph.png"))
 
 
