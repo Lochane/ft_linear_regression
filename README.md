@@ -6,7 +6,7 @@
 ## Watch The Model Learn
 Here we can see that RMSE, which represents how much the model is wrong (parler de 667), drops iteration by iteration, until it converges.
 
-![TRAIN PROMPT]({png/{F3E69C0D-A328-4654-95AD-6B8F776754FB}.png}.png)
+![TRAIN PROMPT]({png/F3E69C0D-A328-4654-95AD-6B8F776754FB}.png)
 
 This graph shows the ***regression line fitting the dataset***, minimizing the overall distance to each point. Training also produces a JSON file that ***saves the model parameters and normalization values for prediction.***
 
