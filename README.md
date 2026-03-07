@@ -10,7 +10,7 @@ Here we can see that **RMSE**, which represents how much the model is wrong (par
 
 This graph shows the ***regression line fitting the dataset***, minimizing the overall distance to each point. Training also produces a JSON file that ***saves the model parameters and normalization values for prediction.***
 
-![JSON OUT](png/{0C37DC8C-E5D6-4268-804E-E99635A25235}.png)![SCATTER RESULT](png/{1281DEEE-8CD6-4F96-B88B-35ADACA2D842}.png)
+![JSON OUT](png/output1.png)
 
 Then you can just ***enter any valid number and get your car price***
 
