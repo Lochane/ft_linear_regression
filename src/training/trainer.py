@@ -35,8 +35,8 @@ class GradientDescentTrainer(BaseTrainer):
 			if i % 100 == 0:
 				train_y = self.model.predict(x)
 				print(f"RMSE: {rmse(y, train_y):.2f}€ | Learning rate: {self.learning_rate} | Iteration: {i}/{self.iterations}")
-			correction_theta0 = (self.learning_rate * sum_error_theta0) / n
-			correction_theta1 = (self.learning_rate * sum_error_theta1) / n
+			correction_theta0 = self.learning_rate * (sum_error_theta0 / n)
+			correction_theta1 = self.learning_rate * (sum_error_theta1 / n)
 
 			self.model.theta0 -= correction_theta0
 			self.model.theta1 -= correction_theta1

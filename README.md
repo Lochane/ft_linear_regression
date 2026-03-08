@@ -2,36 +2,41 @@
 **Predicting car prices with nothing but a CSV and some formulas. _No polyfit. No magic._ Just gradient descent.**\
 *A 42 project and my first dive into machine learning.*
 
-## The Business Problem
-
-Imagine you want to know the price of your car before selling it.<br/> We know that a car with high mileage is worth less than a brand new car that never took the road.<br/>***So in order to estimate the price of our car we can just perform a linear regression based on the mileage and price of cars that were sold before ours.***
-
-|	Mileage |	Price 	|
-|-----------|-----------|
-|	240000  |	3650    |
-|	84000	|	6200    |
-|	61789   |	8290    |
+Given mileage and historical sales data, the model estimates a car's resale value using linear regression trained with gradient descent.
 
 ## Watch The Model Learn
-Here we can see that **RMSE**, which represents how much the model is wrong (parler de 667), **drops iteration by iteration**, until it converges.
+Here we can see the **RMSE**, the model's prediction error, **dropping iteration by iteration**, until the end of training.
 
-![TRAIN PROMPT](png/{F3E69C0D-A328-4654-95AD-6B8F776754FB}.png)
+![TRAIN PROMPT](png/train_prompt.png)
 
 This graph shows the ***regression line fitting the dataset***, minimizing the overall distance to each point. Training also produces a JSON file that ***saves the model parameters and normalization values for prediction.***
 
-![JSON OUT](png/output1.png)
+![JSON OUT](png/output_train.png)
 
 Then you can just ***enter any valid number and get your car price***
 
-![PREDICT PROMPT](png/{1DA1DF36-C7DF-492B-BC2F-9F031EEA8BA4}.png)
+![PREDICT PROMPT](png/predict_prompt.png)
 
 
 ## Algorithm and Data Flow
 
-*(le "comment" : brut → normalisation → descente de gradient → prédiction — fusionné)*
+The model is a simple linear function **f(x) = ax + b**, trained via **gradient descent** to minimize the **Mean Squared Error** (MSE). Features are normalized with **z-score standardization** before training to ensure stable convergence. Once trained, the model parameters and normalization values are saved to a JSON file for reuse.
 
 ## OOP Architecture
 
-courte description des classes et leur responsabilité respective
+The project is structured around abstract **base classes** *(BaseModel, BasePreprocessor, BaseTrainer)*  that define clear interfaces, each implemented by their respective **concrete classes** *(LinearRegression, GradientDescentTrainer, Normalizer)*. </br>**Concerns** are split across dedicated modules *(preprocessing, training, metrics, persistence, and visualization)* making each component **independently testable and reusable**.
 
 ## Installing and Usage
+This project uses [Python](https://www.python.org/).</br>
+Clone the repository and install the dependencies:
+
+```
+git clone <repo>
+cd ft_linear_regression
+pip install -r requirements.txt
+```
+
+Train the model and run predictions:
+```
+python3 train.py    # trains the model and saves parameters to data/models/thetas.json
+python3 predict.py  # loads the model and predicts a car price from mileage input

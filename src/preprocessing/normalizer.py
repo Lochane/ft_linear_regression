@@ -1,7 +1,8 @@
 import math
 import numpy as np
+from src.base import BasePreprocessor
 
-class StandardScaler:
+class StandardScaler(BasePreprocessor):
 	"""Standard Scaler class for normalizing data.""" 
 	def __init__(self, mean: np.ndarray=None, std: np.ndarray=None):
 		"""Initialize the StandardScaler with mean and std. If mean and std are not provided, they will be computed from the data during fitting.

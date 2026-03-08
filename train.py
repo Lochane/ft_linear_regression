@@ -26,7 +26,6 @@ def main():
 	price = df["price"].to_numpy()
 	normalized_mileage = scaler.fit_transform(raw_mileage)
 
-
 	trainer.train(normalized_mileage, price)
 	params = {"theta0": model.theta0, "theta1": model.theta1, "mileage_mean": scaler.mean, "mileage_std": scaler.std} 
 	save_model(params, "data/models/thetas.json")
