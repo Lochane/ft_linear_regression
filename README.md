@@ -20,7 +20,7 @@ Then you can just ***enter any valid number and get your car price***
 
 ## Algorithm and Data Flow
 
-The model is a simple linear function **f(x) = ax + b**, trained via **gradient descent** to minimize the **Mean Squared Error** (MSE). Features are normalized with **z-score standardization** before training to ensure stable convergence. Once trained, the model parameters and normalization values are saved to a JSON file for reuse.
+The model is a simple affine function **f(x) = ax + b**, trained via **gradient descent** to minimize the **Mean Squared Error** (MSE). Features are normalized with **z-score standardization** before training to ensure stable convergence. Once trained, the model parameters and normalization values are saved to a JSON file for reuse.
 
 ## OOP Architecture
 
